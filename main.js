@@ -28,4 +28,9 @@ bot.on("ready", function() {
     console.log("Connected!".green);
 });
 
+bot.on("disconnected", function() {
+    console.log("Disconnected!".red);
+    process.exit();
+});
+
 bot.login(authDetails.username, authDetails.password);
