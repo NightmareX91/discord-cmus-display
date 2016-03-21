@@ -13,6 +13,7 @@
     "url": "https://github.com/NightmareX91/discord-cmus-display/issues"
   },
   "dependencies": {
+    "colors": "^1.1.2",
     "discord.js": "^6.0.0"
   }
 }
