@@ -1,0 +1,18 @@
+{
+  "name": "Discord-CMus-Integration",
+  "version": "0.0.1",
+  "description": "Show what cmus is playing on Discord",
+  "author": "meanwhile (meanwhile.rocks)",
+  "main": "main.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NightmareX91/discord-cmus-integration"
+  },
+  "bugs": {
+    "url": "https://github.com/NightmareX91/discord-cmus-integration/issues"
+  },
+  "dependencies": {
+    "discord.js": "^6.0.0"
+  }
+}
