@@ -26,6 +26,7 @@ var bot = new discord.Client();
 var exec = require("child_process").exec;
 var cmd = "cmus-remote -Q";
 var songTitle;
+var cmusStatus;
 
 bot.on("ready", function() {
     console.log("Connected!".green);
@@ -36,6 +37,7 @@ bot.on("ready", function() {
                 throw err;
             }
 
+            // Song title separation
             var str1;
             var str2;
             var str3;
@@ -45,9 +47,31 @@ bot.on("ready", function() {
             str3 = str2.replace(/(\r\n|\n|\r)/gm, "");
 
             songTitle = str3;
+
+            // Status separation
+            var str4;
+            var str5;
+            var str6;
+
+            str4 = stdout.split("status ")[1];
+            str5 = str4.split("file ")[0];
+            str6 = str5.replace(/(\r\n|\n|\r)/gm, "");
+
+            cmusStatus = str6;
         });
 
-        bot.setPlayingGame(songTitle);
+        if (cmusStatus === "stopped") {
+            console.log("cmus status: stopped".yellow);
+            bot.setPlayingGame();
+        }
+        else if (cmusStatus === "paused") {
+            console.log("cmus status: paused".yellow);
+            bot.setPlayingGame("cmus: Song Paused");
+        }
+        else if (cmusStatus === "playing") {
+            console.log("cmus status: playing".yellow);
+            bot.setPlayingGame(songTitle);
+        }
     }, 500);
 });
 
