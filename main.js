@@ -70,7 +70,7 @@ bot.on("ready", function() {
         }
         else if (cmusStatus === "playing") {
             console.log("cmus status: playing".yellow);
-            bot.setPlayingGame(songTitle);
+            bot.setPlayingGame("cmus: " + songTitle);
         }
     }, 500);
 });
