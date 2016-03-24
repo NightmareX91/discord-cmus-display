@@ -81,7 +81,7 @@ bot.on("ready", function() {
             //console.log("cmus status: playing".yellow);
             bot.setPlayingGame("cmus: " + songTitle);
         }
-    }, 500);
+    }, 1000);
 });
 
 bot.on("disconnected", function() {
